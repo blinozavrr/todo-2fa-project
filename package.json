@@ -2,19 +2,11 @@
   "name": "todo-2fa-project",
   "version": "1.0.0",
   "scripts": {
-    // Скрипт, который платформа может вызвать сразу после npm install
-    // Здесь мы ставим зависимости для client, собираем клиент, ставим зависимости для server
     "postinstall": "npm install --prefix client && npm run build --prefix client && npm install --prefix server",
-    
-    // Локальный запуск (dev): запустить одновременно сервер и клиент (по желанию)
-    // требует пакета concurrently, если хотите. Иначе можно запускать по отдельности.
     "dev": "concurrently \"npm run dev --prefix server\" \"npm start --prefix client\"",
-    
-    // В продакшене Railway/Render вызовет "npm start",
-    // где мы запускаем сервер, который уже умеет раздавать статику из client/build
     "start": "node server/server.js"
   },
   "dependencies": {
-    "concurrently": "^7.6.0" // только если нужен скрипт "dev"
+    "concurrently": "^7.6.0"
   }
 }
